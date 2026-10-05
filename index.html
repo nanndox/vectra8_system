@@ -36,21 +36,25 @@
         .glass-panel {
             background: var(--bg-card);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 242, 254, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 242, 254, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .glass-panel:hover {
             border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.18);
             transform: translateY(-2px);
             transition: all 0.3s ease;
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #00c6ff 100%);
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #7f00ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .logo-v8-glow {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6)) drop-shadow(0 0 16px rgba(127, 0, 255, 0.4));
         }
 
         .tab-btn {
@@ -66,22 +70,30 @@
 <body class="antialiased selection:bg-cyan-500 selection:text-black">
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-900/30 bg-[#070B14]/80">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-900/30 bg-[#070B14]/85">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <!-- Logo SVG vetorial customizado V8 -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 p-[2px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-                    <div class="w-full h-full bg-[#070B14] rounded-[10px] flex items-center justify-center">
-                        <svg class="w-7 h-7 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m16 16 3-8 3 8"></path>
-                            <path d="M4 16c1.5 0 3-1.5 3-3.5S5.5 9 4 9s-3 1.5-3 3.5S2.5 16 4 16z"></path>
-                            <path d="M4 9c1.5 0 3-1.5 3-3.5S5.5 2 4 2 1 3.5 1 5.5 2.5 9 4 9z"></path>
-                        </svg>
-                    </div>
+            
+            <!-- Logo V8 Entrelaçado em Néon (Código SVG de alta precisão) -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="relative w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-950/80 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-600/20 opacity-50"></div>
+                    <svg class="w-10 h-10 logo-v8-glow relative z-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="v8Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe" />
+                                <stop offset="50%" stop-color="#38bdf8" />
+                                <stop offset="100%" stop-color="#a855f7" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Letra V entrelaçada ao 8 -->
+                        <path d="M 12,28 L 36,78 L 52,42" stroke="url(#v8Grad)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Símbolo 8 Infinito -->
+                        <path d="M 62,38 C 54,22 84,18 84,36 C 84,52 48,50 48,68 C 48,84 84,82 76,64" stroke="url(#v8Grad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
                 <div>
-                    <span class="font-heading text-2xl font-bold tracking-wider text-white">VECTRA<span class="text-cyan-400">8</span></span>
-                    <span class="block text-[10px] tracking-widest text-cyan-500/80 font-mono mt-0.5">AGÊNCIA DIGITAL</span>
+                    <span class="font-heading text-2xl font-extrabold tracking-wider text-white">VECTRA<span class="text-cyan-400">8</span></span>
+                    <span class="block text-[10px] tracking-widest text-cyan-400/90 font-mono mt-0.5">AGÊNCIA DIGITAL</span>
                 </div>
             </a>
 
@@ -91,7 +103,7 @@
                 <a href="#contacto" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Contacto</a>
             </nav>
 
-            <a href="#contacto" class="hidden md:flex px-6 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all items-center gap-2 shadow-lg shadow-cyan-500/25">
+            <a href="#contacto" class="hidden md:flex px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-sm transition-all items-center gap-2 shadow-lg shadow-cyan-500/25">
                 Pedir Orçamento
             </a>
         </div>
@@ -99,10 +111,10 @@
 
     <!-- Hero Section -->
     <section class="pt-40 pb-24 px-6 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-600/20 rounded-full blur-[120px] -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-600/20 to-purple-600/20 rounded-full blur-[130px] -z-10"></div>
         
         <div class="max-w-7xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 text-cyan-400 text-xs font-mono mb-8 border border-cyan-500/30 backdrop-blur-sm">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/60 text-cyan-400 text-xs font-mono mb-8 border border-cyan-500/30 backdrop-blur-sm">
                 <i data-lucide="sparkles" class="w-4 h-4"></i> Inovação, Design & Performance
             </div>
             <h1 class="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
@@ -218,7 +230,6 @@
                     </button>
                 </div>
                 
-                <!-- Resultado do Detetor -->
                 <div id="scan-result" class="hidden p-6 rounded-xl bg-[#070B14] border border-slate-800 text-sm font-mono mt-6">
                     <div id="scan-status" class="flex items-center gap-3 text-slate-300 font-bold mb-4"></div>
                     <div id="scan-details" class="space-y-3 text-slate-400 pt-4 border-t border-slate-800/50"></div>
@@ -232,7 +243,6 @@
                 </h3>
                 <p class="text-sm text-slate-400 mb-6">Mede a resposta e a largura de banda da sua ligação à rede em tempo real.</p>
                 
-                <!-- Explicação dos Conceitos -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-left font-mono text-xs text-slate-400 bg-[#070B14]/80 p-4 rounded-xl border border-slate-800">
                     <div>
                         <span class="text-cyan-400 font-bold block mb-1">📶 PING (Latência):</span>
@@ -263,7 +273,6 @@
                     </div>
                 </div>
 
-                <!-- Indicador de Qualidade da Ligação -->
                 <div id="speed-status-box" class="hidden max-w-2xl mx-auto mb-8 p-4 rounded-xl font-mono text-sm border flex items-center justify-center gap-3"></div>
 
                 <button onclick="runSpeedTest()" id="speed-btn" class="px-10 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm rounded-xl inline-flex items-center gap-2 transition-all">
@@ -315,7 +324,6 @@
     <section id="contacto" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
             
-            <!-- Info e Botões Rápidos -->
             <div>
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-6 border border-cyan-500/20">
                     <i data-lucide="message-square" class="w-4 h-4"></i> Fale Connosco
@@ -328,7 +336,6 @@
                 </p>
 
                 <div class="space-y-6">
-                    <!-- Contacto Telefónico Oculto + Ação WhatsApp Directa -->
                     <a href="https://wa.me/351964505531?text=Ol%C3%A1%20VECTRA8!%20Gostaria%20de%20pedir%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20vossos%20servi%C3%A7os." target="_blank" class="glass-panel p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 group hover:border-emerald-500/50 transition-all">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
@@ -344,7 +351,6 @@
                         </span>
                     </a>
 
-                    <!-- Correio Eletrónico -->
                     <a href="mailto:ndx.devsecops@gmail.com" class="glass-panel p-6 rounded-2xl flex items-center gap-4 group hover:border-cyan-500/50 transition-all">
                         <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
                             <i data-lucide="mail" class="w-6 h-6"></i>
@@ -357,11 +363,9 @@
                 </div>
             </div>
 
-            <!-- Formulário Responsivo com envio direto por email (FormSubmit) -->
             <div class="glass-panel p-8 md:p-10 rounded-3xl">
                 <h3 class="font-heading text-2xl font-bold text-white mb-8">Pedir Orçamento Direto</h3>
                 <form action="https://formsubmit.co/ndx.devsecops@gmail.com" method="POST" class="space-y-6 font-mono text-sm">
-                    <!-- Configurações FormSubmit -->
                     <input type="hidden" name="_subject" value="Novo Pedido de Orçamento - VECTRA8 HUB">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
@@ -398,7 +402,7 @@
                         <textarea name="Detalhes" rows="4" required placeholder="Explique brevemente o que pretende para o seu projeto..." class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 resize-none transition-colors"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-500/25">
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-500/25">
                         <i data-lucide="send" class="w-5 h-5"></i> Enviar Pedido por E-mail
                     </button>
                 </form>
@@ -410,14 +414,11 @@
     <footer class="border-t border-slate-800 bg-[#04060A] pt-16 pb-8 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 p-[1.5px]">
-                    <div class="w-full h-full bg-[#070B14] rounded-[9px] flex items-center justify-center">
-                        <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m16 16 3-8 3 8"></path>
-                            <path d="M4 16c1.5 0 3-1.5 3-3.5S5.5 9 4 9s-3 1.5-3 3.5S2.5 16 4 16z"></path>
-                            <path d="M4 9c1.5 0 3-1.5 3-3.5S5.5 2 4 2 1 3.5 1 5.5 2.5 9 4 9z"></path>
-                        </svg>
-                    </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-950 border border-cyan-500/30 flex items-center justify-center">
+                    <svg class="w-6 h-6 logo-v8-glow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 12,28 L 36,78 L 52,42" stroke="url(#v8Grad)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 62,38 C 54,22 84,18 84,36 C 84,52 48,50 48,68 C 48,84 84,82 76,64" stroke="url(#v8Grad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
                 <span class="font-heading font-bold text-white text-xl tracking-wider">VECTRA<span class="text-cyan-400">8</span></span>
             </div>
@@ -452,7 +453,6 @@
             lucide.createIcons();
         }
 
-        // TAB 1: Detetor de Riscos (URL/IP)
         function runSecurityScan() {
             const input = document.getElementById('target-input').value.trim();
             const resultBox = document.getElementById('scan-result');
@@ -491,7 +491,6 @@
             }, 1800);
         }
 
-        // TAB 2: Teste de Velocidade com Avaliação de Qualidade Dinâmica
         function runSpeedTest() {
             const btn = document.getElementById('speed-btn');
             const pingVal = document.getElementById('ping-val');
@@ -523,7 +522,6 @@
                 const up = Math.floor(Math.random() * 200 + 50);
                 upVal.innerHTML = `${up} <span class="text-sm font-normal text-slate-400">Mbps</span>`; 
                 
-                // Avaliação da qualidade de ligação
                 statusBox.classList.remove('hidden');
                 if (downSpeed >= 250) {
                     statusBox.className = "max-w-2xl mx-auto mb-8 p-4 rounded-xl font-mono text-sm border flex items-center justify-center gap-3 bg-emerald-500/10 border-emerald-500/30 text-emerald-400";
@@ -542,7 +540,6 @@
             }, 3800);
         }
 
-        // TAB 3: Encriptador de Mensagens
         function processCrypto(action) {
             const input = document.getElementById('crypto-input').value;
             const algo = document.getElementById('algo-select').value;
