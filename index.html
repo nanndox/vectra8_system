@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VECTRA8 HUB | Engenharia Digital, Design & Cibersegurança</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --cyan-glow: #00f2fe;
+            --purple-glow: #7f00ff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+        }
+
+        .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #00c6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #00f2fe;
+            color: #00f2fe;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="cpu" class="w-6 h-6 text-slate-950"></i>
+                </div>
+                <div>
+                    <span class="font-heading text-xl font-bold tracking-wider text-white">VECTRA<span class="text-cyan-400">8</span></span>
+                    <span class="block text-[10px] tracking-widest text-slate-400 font-mono -mt-1">ENGINEERING & DESIGN</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#servicos" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>Serviços</a>
+                <a href="#cybershield" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>CyberShield</a>
+                <a href="#precos" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-cyan-400"></i>Pacotes</a>
+                <a href="#contacto" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>Contacto</a>
+            </nav>
+
+            <a href="#contacto" class="px-5 py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/20">
+                <i data-lucide="terminal" class="w-4 h-4"></i> Pedir Orçamento
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-36 pb-20 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-cyan-400 text-xs font-mono mb-8 border border-cyan-500/20">
+                <i data-lucide="sparkles" class="w-4 h-4"></i> Soluções Digitais & Engenharia de Software
+            </div>
+            <h1 class="font-heading text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                Construímos Plataformas Web, <br><span class="text-gradient">Software Personalizado & Design Comercial</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-400 text-base md:text-lg mb-10 leading-relaxed">
+                Transformamos a presença digital do seu negócio com elegância, alto desempenho e design focado em conversão.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#servicos" class="px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all flex items-center gap-2 shadow-xl shadow-cyan-500/20">
+                    <i data-lucide="layout-grid" class="w-4 h-4"></i> Explorar Serviços
+                </a>
+                <a href="#cybershield" class="px-7 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-cyan-400 font-semibold text-sm transition-all flex items-center gap-2 border border-slate-700">
+                    <i data-lucide="shield" class="w-4 h-4 text-cyan-400"></i> Testar CyberShield
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Principais -->
+    <section id="servicos" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-heading text-3xl font-bold text-white mb-3 flex items-center justify-center gap-3">
+                <i data-lucide="code-2" class="w-8 h-8 text-cyan-400"></i> Especialidades VECTRA8
+            </h2>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto">Desenvolvimento de alto nível técnico alinhado com comunicação visual e identidade de marca refinada.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Web & Apps -->
+            <div class="glass-panel p-8 rounded-2xl relative group">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 border border-cyan-500/20">
+                    <i data-lucide="globe" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    Websites & Software
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Desenvolvimento de Websites Responsivos, Plataformas Web, Soluções de Automação e Aplicações sob medida para o seu fluxo de trabalho.
+                </p>
+                <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Landing Pages & Lojas Web</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Web Apps & Automações em Python</li>
+                </ul>
+            </div>
+
+            <!-- Design Comercial -->
+            <div class="glass-panel p-8 rounded-2xl relative group">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
+                    <i data-lucide="palette" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    Design Comercial & Identidade
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Criação de materiais gráficos comerciais marcantes para destacar a sua marca no mercado físico e digital.
+                </p>
+                <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> Flyers para Eventos & Promoções</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> Cartões de Visita Executivos</li>
+                </ul>
+            </div>
+
+            <!-- Cibersegurança sob Consulta -->
+            <div class="glass-panel p-8 rounded-2xl relative group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    Cibersegurança (Sob Consulta)
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Auditorias de segurança, análise de vulnerabilidades em aplicações e hardening de redes para garantir proteção avançada.
+                </p>
+                <ul class="text-xs text-slate-300 space-y-2 font-mono mb-6">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Análise de Vulnerabilidades</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Proteção de Infraestruturas</li>
+                </ul>
+                <span class="inline-block px-3 py-1 bg-slate-800 text-emerald-400 rounded text-xs font-mono">Sob Consulta Técnica</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VECTRA8 CyberShield Interactive Hub -->
+    <section id="cybershield" class="py-20 px-6 bg-slate-950/60 border-y border-slate-800/60">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-4 border border-cyan-500/20">
+                    <i data-lucide="shield-alert" class="w-4 h-4"></i> VECTRA8 CyberShield Interactive
+                </div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-3">Simulador de Ferramentas de Rede & Segurança</h2>
+                <p class="text-slate-400 text-sm">Ferramentas de diagnóstico rápido e simulação de cibersegurança em tempo real.</p>
+            </div>
+
+            <!-- Tabs de Navegação -->
+            <div class="flex justify-center border-b border-slate-800 mb-8 gap-6 font-mono text-xs">
+                <button onclick="switchTab('tab-detector')" id="btn-detector" class="tab-btn active pb-3 flex items-center gap-2 text-slate-300 hover:text-cyan-400">
+                    <i data-lucide="search" class="w-4 h-4"></i> Detetor de Riscos (URL / IP)
+                </button>
+                <button onclick="switchTab('tab-speed')" id="btn-speed" class="tab-btn pb-3 flex items-center gap-2 text-slate-400 hover:text-cyan-400">
+                    <i data-lucide="gauge" class="w-4 h-4"></i> Teste de Velocidade
+                </button>
+                <button
