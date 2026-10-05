@@ -73,7 +73,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-900/30 bg-[#070B14]/85">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             
-            <!-- Logo V8 Entrelaçado em Néon (Código SVG de alta precisão) -->
+            <!-- Logo V8 Entrelaçado em Néon -->
             <a href="#" class="flex items-center gap-4 group">
                 <div class="relative w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-950/80 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-600/20 opacity-50"></div>
@@ -85,9 +85,7 @@
                                 <stop offset="100%" stop-color="#a855f7" />
                             </linearGradient>
                         </defs>
-                        <!-- Letra V entrelaçada ao 8 -->
                         <path d="M 12,28 L 36,78 L 52,42" stroke="url(#v8Grad)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-                        <!-- Símbolo 8 Infinito -->
                         <path d="M 62,38 C 54,22 84,18 84,36 C 84,52 48,50 48,68 C 48,84 84,82 76,64" stroke="url(#v8Grad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -152,7 +150,10 @@
                     Plataformas web responsivas, landing pages de alta conversão e desenvolvimento de aplicações personalizadas.
                 </p>
                 <ul class="text-sm text-slate-300 space-y-3 font-mono">
-                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Landing Pages Exclusivas (150€)</li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> 
+                        <span>Landing Pages Exclusivas (<span class="line-through text-slate-500">200€</span> <strong class="text-cyan-400 text-base">199€</strong>)</span>
+                    </li>
                     <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Lojas Online (E-commerce)</li>
                     <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Software e Apps Mobile</li>
                 </ul>
@@ -363,30 +364,27 @@
                 </div>
             </div>
 
+            <!-- Formulário com Envio Direto via JS para WhatsApp + Mailto sem redirecionamentos externos -->
             <div class="glass-panel p-8 md:p-10 rounded-3xl">
                 <h3 class="font-heading text-2xl font-bold text-white mb-8">Pedir Orçamento Direto</h3>
-                <form action="https://formsubmit.co/ndx.devsecops@gmail.com" method="POST" class="space-y-6 font-mono text-sm">
-                    <input type="hidden" name="_subject" value="Novo Pedido de Orçamento - VECTRA8 HUB">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
+                <form id="direct-contact-form" onsubmit="sendDirectMessage(event)" class="space-y-6 font-mono text-sm">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-slate-400 mb-2">O seu Nome</label>
-                            <input type="text" name="Nome" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                            <input type="text" id="form-nome" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
                         </div>
                         <div>
                             <label class="block text-slate-400 mb-2">Telefone / WhatsApp</label>
-                            <input type="tel" name="Telefone" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                            <input type="tel" id="form-telefone" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-slate-400 mb-2">Qual o motivo do contacto?</label>
                         <div class="relative">
-                            <select name="Servico_Desejado" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors appearance-none">
+                            <select id="form-servico" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors appearance-none">
                                 <option value="" disabled selected>Selecione o serviço desejado...</option>
-                                <option value="Website Responsivo (Pack 150€)">Criar Website Responsivo (Pack Landing Page 150€)</option>
+                                <option value="Website Responsivo (Pack 199€)">Criar Website Responsivo (Pack Landing Page 199€)</option>
                                 <option value="Software / App">Desenvolvimento de Software / App</option>
                                 <option value="Flyer para Eventos">Design de Flyer para Eventos</option>
                                 <option value="Cartão de Visita">Design de Cartão de Visita</option>
@@ -399,11 +397,11 @@
 
                     <div>
                         <label class="block text-slate-400 mb-2">Detalhes do Projeto</label>
-                        <textarea name="Detalhes" rows="4" required placeholder="Explique brevemente o que pretende para o seu projeto..." class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 resize-none transition-colors"></textarea>
+                        <textarea id="form-detalhes" rows="4" required placeholder="Explique brevemente o que pretende para o seu projeto..." class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 resize-none transition-colors"></textarea>
                     </div>
 
                     <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-500/25">
-                        <i data-lucide="send" class="w-5 h-5"></i> Enviar Pedido por E-mail
+                        <i data-lucide="send" class="w-5 h-5"></i> Enviar Pedido (WhatsApp & E-mail)
                     </button>
                 </form>
             </div>
@@ -451,6 +449,43 @@
             btn.classList.remove('text-slate-500');
             
             lucide.createIcons();
+        }
+
+        // Lógica de envio direto para WhatsApp e E-mail sem redirecionamento para sites de terceiros
+        function sendDirectMessage(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('form-nome').value.trim();
+            const telefone = document.getElementById('form-telefone').value.trim();
+            const servico = document.getElementById('form-servico').value;
+            const detalhes = document.getElementById('form-detalhes').value.trim();
+
+            const myPhone = "351964505531";
+            const myEmail = "ndx.devsecops@gmail.com";
+
+            // 1. Criar texto formatado para o WhatsApp
+            const messageWhatsApp = `*NOVO PEDIDO DE ORÇAMENTO - VECTRA8*%0A%0A` +
+                `👤 *Nome:* ${encodeURIComponent(nome)}%0A` +
+                `📞 *Telefone:* ${encodeURIComponent(telefone)}%0A` +
+                `📌 *Serviço:* ${encodeURIComponent(servico)}%0A` +
+                `📝 *Detalhes:* ${encodeURIComponent(detalhes)}`;
+
+            // 2. Criar link mailto direto para o e-mail
+            const subjectEmail = encodeURIComponent(`Pedido de Orçamento VECTRA8 - ${servico}`);
+            const bodyEmail = encodeURIComponent(
+                `Nome: ${nome}\n` +
+                `Telefone: ${telefone}\n` +
+                `Serviço: ${servico}\n\n` +
+                `Detalhes do Projeto:\n${detalhes}`
+            );
+
+            // Abrir WhatsApp numa nova janela
+            window.open(`https://wa.me/${myPhone}?text=${messageWhatsApp}`, '_blank');
+
+            // Abrir cliente de email por mailto
+            window.location.href = `mailto:${myEmail}?subject=${subjectEmail}&body=${bodyEmail}`;
+
+            alert('O seu pedido foi preparado! Foi aberta a conversa no WhatsApp e o envio por e-mail.');
         }
 
         function runSecurityScan() {
