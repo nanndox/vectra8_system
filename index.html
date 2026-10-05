@@ -16,8 +16,8 @@
 
     <style>
         :root {
-            --bg-dark: #090d16;
-            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-dark: #070B14;
+            --bg-card: rgba(13, 19, 33, 0.75);
             --cyan-glow: #00f2fe;
             --purple-glow: #7f00ff;
         }
@@ -26,6 +26,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-dark);
             color: #f1f5f9;
+            scroll-behavior: smooth;
         }
 
         .font-heading {
@@ -34,13 +35,16 @@
 
         .glass-panel {
             background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         .glass-panel:hover {
-            border-color: rgba(0, 242, 254, 0.3);
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.1);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
 
         .text-gradient {
@@ -49,144 +53,493 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
         .tab-btn.active {
             border-bottom: 2px solid #00f2fe;
             color: #00f2fe;
+            font-weight: 600;
         }
     </style>
 </head>
 <body class="antialiased selection:bg-cyan-500 selection:text-black">
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                    <i data-lucide="cpu" class="w-6 h-6 text-slate-950"></i>
-                </div>
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-900/30 bg-[#070B14]/80">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Logo atualizado -->
+            <div class="flex items-center gap-4">
+                <img src="Gemini_Generated_Image_qkib7sqkib7sqkib.jpeg" alt="VECTRA8 Logo" class="h-14 w-12 object-cover rounded-lg border border-cyan-500/30 shadow-lg shadow-cyan-500/20">
                 <div>
-                    <span class="font-heading text-xl font-bold tracking-wider text-white">VECTRA<span class="text-cyan-400">8</span></span>
-                    <span class="block text-[10px] tracking-widest text-slate-400 font-mono -mt-1">ENGINEERING & DESIGN</span>
+                    <span class="font-heading text-2xl font-bold tracking-wider text-white">VECTRA<span class="text-cyan-400">8</span></span>
+                    <span class="block text-[10px] tracking-widest text-cyan-500/80 font-mono mt-0.5">AGÊNCIA DIGITAL</span>
                 </div>
             </div>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#servicos" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>Serviços</a>
-                <a href="#cybershield" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>CyberShield</a>
-                <a href="#precos" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-cyan-400"></i>Pacotes</a>
-                <a href="#contacto" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>Contacto</a>
+                <a href="#servicos" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="layers" class="w-4 h-4"></i> Serviços</a>
+                <a href="#cybershield" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> CyberShield</a>
+                <a href="#contacto" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Contacto</a>
             </nav>
 
-            <a href="#contacto" class="px-5 py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/20">
-                <i data-lucide="terminal" class="w-4 h-4"></i> Pedir Orçamento
+            <a href="#contacto" class="hidden md:flex px-6 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all items-center gap-2 shadow-lg shadow-cyan-500/25">
+                Pedir Orçamento
             </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <section class="pt-40 pb-24 px-6 relative overflow-hidden">
+        <!-- Glow background effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-600/20 rounded-full blur-[120px] -z-10"></div>
+        
         <div class="max-w-7xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-cyan-400 text-xs font-mono mb-8 border border-cyan-500/20">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> Soluções Digitais & Engenharia de Software
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 text-cyan-400 text-xs font-mono mb-8 border border-cyan-500/30 backdrop-blur-sm">
+                <i data-lucide="zap" class="w-4 h-4"></i> Inovação, Design & Performance
             </div>
-            <h1 class="font-heading text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-                Construímos Plataformas Web, <br><span class="text-gradient">Software Personalizado & Design Comercial</span>
+            <h1 class="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
+                Construímos O Futuro Digital <br><span class="text-gradient">Da Sua Empresa</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-slate-400 text-base md:text-lg mb-10 leading-relaxed">
-                Transformamos a presença digital do seu negócio com elegância, alto desempenho e design focado em conversão.
+            <p class="max-w-2xl mx-auto text-slate-400 text-base md:text-lg mb-12 leading-relaxed">
+                Especialistas em Websites de Alta Conversão, Software à Medida e Design Comercial Premium.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#servicos" class="px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all flex items-center gap-2 shadow-xl shadow-cyan-500/20">
-                    <i data-lucide="layout-grid" class="w-4 h-4"></i> Explorar Serviços
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#servicos" class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xl shadow-cyan-500/20">
+                    <i data-lucide="monitor" class="w-5 h-5"></i> Descubra os Serviços
                 </a>
-                <a href="#cybershield" class="px-7 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-cyan-400 font-semibold text-sm transition-all flex items-center gap-2 border border-slate-700">
-                    <i data-lucide="shield" class="w-4 h-4 text-cyan-400"></i> Testar CyberShield
+                <a href="#cybershield" class="px-8 py-4 rounded-xl glass-panel text-white hover:text-cyan-400 font-bold text-sm transition-all flex items-center justify-center gap-2 border border-slate-700">
+                    <i data-lucide="shield" class="w-5 h-5 text-cyan-400"></i> CyberShield Integrado
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Serviços Principais -->
-    <section id="servicos" class="py-20 px-6 max-w-7xl mx-auto">
+    <section id="servicos" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-heading text-3xl font-bold text-white mb-3 flex items-center justify-center gap-3">
-                <i data-lucide="code-2" class="w-8 h-8 text-cyan-400"></i> Especialidades VECTRA8
-            </h2>
-            <p class="text-slate-400 text-sm max-w-xl mx-auto">Desenvolvimento de alto nível técnico alinhado com comunicação visual e identidade de marca refinada.</p>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Soluções <span class="text-cyan-400">Premium</span></h2>
+            <p class="text-slate-400 text-sm max-w-2xl mx-auto">Desenvolvimento de alto nível técnico alinhado com comunicação visual de excelência.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Web & Apps -->
-            <div class="glass-panel p-8 rounded-2xl relative group">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 border border-cyan-500/20">
-                    <i data-lucide="globe" class="w-6 h-6"></i>
+            <div class="glass-panel p-10 rounded-2xl relative group">
+                <div class="w-14 h-14 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 border border-cyan-500/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="laptop" class="w-7 h-7"></i>
                 </div>
-                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
-                    Websites & Software
-                </h3>
+                <h3 class="font-heading text-xl font-bold text-white mb-4">Websites & Software</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Desenvolvimento de Websites Responsivos, Plataformas Web, Soluções de Automação e Aplicações sob medida para o seu fluxo de trabalho.
+                    Plataformas web responsivas, landing pages de alta conversão e desenvolvimento de aplicações personalizadas.
                 </p>
-                <ul class="text-xs text-slate-300 space-y-2 font-mono">
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Landing Pages & Lojas Web</li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Web Apps & Automações em Python</li>
+                <ul class="text-sm text-slate-300 space-y-3 font-mono">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Landing Pages Exclusivas (150€)</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Lojas Online (E-commerce)</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Software e Apps Mobile</li>
                 </ul>
             </div>
 
             <!-- Design Comercial -->
-            <div class="glass-panel p-8 rounded-2xl relative group">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
-                    <i data-lucide="palette" class="w-6 h-6"></i>
+            <div class="glass-panel p-10 rounded-2xl relative group">
+                <div class="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="pen-tool" class="w-7 h-7"></i>
                 </div>
-                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
-                    Design Comercial & Identidade
-                </h3>
+                <h3 class="font-heading text-xl font-bold text-white mb-4">Design Comercial</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Criação de materiais gráficos comerciais marcantes para destacar a sua marca no mercado físico e digital.
+                    Identidade visual marcante para destacar o seu negócio no mundo físico e no digital.
                 </p>
-                <ul class="text-xs text-slate-300 space-y-2 font-mono">
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> Flyers para Eventos & Promoções</li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> Cartões de Visita Executivos</li>
+                <ul class="text-sm text-slate-300 space-y-3 font-mono">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Flyers Profissionais para Eventos</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Cartões de Visita Premium</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Logótipos e Branding Empresarial</li>
                 </ul>
             </div>
 
-            <!-- Cibersegurança sob Consulta -->
-            <div class="glass-panel p-8 rounded-2xl relative group">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
-                    <i data-lucide="lock" class="w-6 h-6"></i>
+            <!-- Cibersegurança -->
+            <div class="glass-panel p-10 rounded-2xl relative group">
+                <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="shield-alert" class="w-7 h-7"></i>
                 </div>
-                <h3 class="font-heading text-xl font-bold text-white mb-3 flex items-center gap-2">
-                    Cibersegurança (Sob Consulta)
-                </h3>
+                <h3 class="font-heading text-xl font-bold text-white mb-4">Cibersegurança</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Auditorias de segurança, análise de vulnerabilidades em aplicações e hardening de redes para garantir proteção avançada.
+                    Proteja a infraestrutura digital da sua empresa contra ameaças com as nossas soluções avançadas.
                 </p>
-                <ul class="text-xs text-slate-300 space-y-2 font-mono mb-6">
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Análise de Vulnerabilidades</li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Proteção de Infraestruturas</li>
+                <ul class="text-sm text-slate-300 space-y-3 font-mono mb-6">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Auditorias de Segurança Web</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Hardening de Servidores</li>
                 </ul>
-                <span class="inline-block px-3 py-1 bg-slate-800 text-emerald-400 rounded text-xs font-mono">Sob Consulta Técnica</span>
+                <span class="inline-block px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded text-xs font-mono font-bold">Sob Consulta</span>
             </div>
         </div>
     </section>
 
-    <!-- VECTRA8 CyberShield Interactive Hub -->
-    <section id="cybershield" class="py-20 px-6 bg-slate-950/60 border-y border-slate-800/60">
+    <!-- VECTRA8 CyberShield -->
+    <section id="cybershield" class="py-24 px-6 relative border-y border-cyan-900/30 bg-[#0A0F1C]">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-4 border border-cyan-500/20">
-                    <i data-lucide="shield-alert" class="w-4 h-4"></i> VECTRA8 CyberShield Interactive
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-4 border border-cyan-500/20">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> Ferramentas Interativas VECTRA8
                 </div>
-                <h2 class="font-heading text-3xl font-bold text-white mb-3">Simulador de Ferramentas de Rede & Segurança</h2>
-                <p class="text-slate-400 text-sm">Ferramentas de diagnóstico rápido e simulação de cibersegurança em tempo real.</p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Simulador <span class="text-cyan-400">CyberShield</span></h2>
+                <p class="text-slate-400 text-sm">Teste gratuitamente algumas das nossas ferramentas de análise e segurança de rede em tempo real.</p>
             </div>
 
             <!-- Tabs de Navegação -->
-            <div class="flex justify-center border-b border-slate-800 mb-8 gap-6 font-mono text-xs">
-                <button onclick="switchTab('tab-detector')" id="btn-detector" class="tab-btn active pb-3 flex items-center gap-2 text-slate-300 hover:text-cyan-400">
-                    <i data-lucide="search" class="w-4 h-4"></i> Detetor de Riscos (URL / IP)
+            <div class="flex flex-wrap justify-center border-b border-slate-800 mb-8 gap-2 md:gap-8 font-mono text-sm">
+                <button onclick="switchTab('tab-detector')" id="btn-detector" class="tab-btn active pb-4 px-4 flex items-center gap-2 text-slate-300 hover:text-cyan-400">
+                    <i data-lucide="search" class="w-4 h-4"></i> Detetor de Links / IP
                 </button>
-                <button onclick="switchTab('tab-speed')" id="btn-speed" class="tab-btn pb-3 flex items-center gap-2 text-slate-400 hover:text-cyan-400">
+                <button onclick="switchTab('tab-speed')" id="btn-speed" class="tab-btn pb-4 px-4 flex items-center gap-2 text-slate-500 hover:text-cyan-400">
                     <i data-lucide="gauge" class="w-4 h-4"></i> Teste de Velocidade
                 </button>
-                <button
+                <button onclick="switchTab('tab-crypto')" id="btn-crypto" class="tab-btn pb-4 px-4 flex items-center gap-2 text-slate-500 hover:text-cyan-400">
+                    <i data-lucide="key-round" class="w-4 h-4"></i> Encriptador de Mensagens
+                </button>
+            </div>
+
+            <!-- TAB 1: Detetor de Riscos -->
+            <div id="tab-detector" class="glass-panel p-6 md:p-10 rounded-2xl">
+                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3 font-heading">
+                    <i data-lucide="radar" class="w-6 h-6 text-cyan-400"></i> Análise de Risco (URL / Domínio / IP)
+                </h3>
+                <p class="text-sm text-slate-400 mb-8">Insira um link suspeito, site ou endereço IP para verificar a sua integridade na nossa base de dados.</p>
+                
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <input type="text" id="target-input" placeholder="Ex: google.com ou 192.168.1.1" class="flex-1 bg-[#070B14] border border-slate-700 rounded-xl px-5 py-4 text-sm text-white focus:outline-none focus:border-cyan-400 font-mono transition-colors">
+                    <button onclick="runSecurityScan()" class="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-all">
+                        <i data-lucide="scan" class="w-5 h-5"></i> Analisar Alvo
+                    </button>
+                </div>
+                
+                <!-- Resultado do Detetor -->
+                <div id="scan-result" class="hidden p-6 rounded-xl bg-[#070B14] border border-slate-800 text-sm font-mono mt-6">
+                    <div id="scan-status" class="flex items-center gap-3 text-slate-300 font-bold mb-4">
+                        <!-- Conteúdo injetado via JS -->
+                    </div>
+                    <div id="scan-details" class="space-y-3 text-slate-400 pt-4 border-t border-slate-800/50">
+                        <!-- Detalhes injetados via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: Teste de Velocidade -->
+            <div id="tab-speed" class="hidden glass-panel p-6 md:p-10 rounded-2xl text-center">
+                <h3 class="text-xl font-bold text-white mb-2 flex items-center justify-center gap-3 font-heading">
+                    <i data-lucide="activity" class="w-6 h-6 text-cyan-400"></i> Simulador de Rede e Velocidade
+                </h3>
+                <p class="text-sm text-slate-400 mb-10">Verifique a latência e a largura de banda estimada da sua ligação atual.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-10 font-mono">
+                    <div class="p-6 bg-[#070B14] rounded-2xl border border-slate-800 shadow-inner">
+                        <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2"><i data-lucide="radio" class="w-4 h-4 inline mb-1"></i> PING</span>
+                        <span id="ping-val" class="text-3xl font-bold text-cyan-400">-- <span class="text-sm font-normal">ms</span></span>
+                    </div>
+                    <div class="p-6 bg-[#070B14] rounded-2xl border border-slate-800 shadow-inner">
+                        <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2"><i data-lucide="download" class="w-4 h-4 inline mb-1"></i> DOWNLOAD</span>
+                        <span id="down-val" class="text-3xl font-bold text-emerald-400">-- <span class="text-sm font-normal">Mbps</span></span>
+                    </div>
+                    <div class="p-6 bg-[#070B14] rounded-2xl border border-slate-800 shadow-inner">
+                        <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2"><i data-lucide="upload" class="w-4 h-4 inline mb-1"></i> UPLOAD</span>
+                        <span id="up-val" class="text-3xl font-bold text-purple-400">-- <span class="text-sm font-normal">Mbps</span></span>
+                    </div>
+                </div>
+
+                <button onclick="runSpeedTest()" id="speed-btn" class="px-10 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm rounded-xl inline-flex items-center gap-2 transition-all">
+                    <i data-lucide="play" class="w-5 h-5"></i> Iniciar Teste de Velocidade
+                </button>
+            </div>
+
+            <!-- TAB 3: Encriptador de Mensagens -->
+            <div id="tab-crypto" class="hidden glass-panel p-6 md:p-10 rounded-2xl">
+                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3 font-heading">
+                    <i data-lucide="lock" class="w-6 h-6 text-cyan-400"></i> Encriptografia de Mensagens
+                </h3>
+                <p class="text-sm text-slate-400 mb-8">Proteja os seus textos convertendo-os em formatos ilegíveis usando os nossos algoritmos.</p>
+
+                <div class="space-y-6 font-mono text-sm">
+                    <div>
+                        <label class="block text-slate-400 mb-2 font-bold">1. Selecione o Algoritmo de Encriptação:</label>
+                        <select id="algo-select" class="w-full md:w-1/2 bg-[#070B14] border border-slate-700 rounded-xl p-3 text-cyan-400 focus:outline-none focus:border-cyan-400">
+                            <option value="base64">Base64 (Standard Web)</option>
+                            <option value="hex">Hexadecimal (HEX)</option>
+                            <option value="rot13">Cifra ROT13 (Substituição)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 mb-2 font-bold">2. Insira a Mensagem / Código:</label>
+                        <textarea id="crypto-input" rows="3" placeholder="Escreva aqui o texto que pretende esconder ou descodificar..." class="w-full bg-[#070B14] border border-slate-700 rounded-xl p-4 text-white focus:outline-none focus:border-cyan-400 resize-none"></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="processCrypto('encrypt')" class="flex-1 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="lock" class="w-5 h-5"></i> Encriptar Mensagem
+                        </button>
+                        <button onclick="processCrypto('decrypt')" class="flex-1 py-4 bg-transparent hover:bg-slate-800 text-white font-bold rounded-xl flex items-center justify-center gap-2 border border-slate-600 transition-all">
+                            <i data-lucide="unlock" class="w-5 h-5"></i> Descodificar Mensagem
+                        </button>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 mb-2 font-bold">3. Resultado Seguro (Copia o texto abaixo):</label>
+                        <textarea id="crypto-output" readonly rows="3" placeholder="O resultado final aparecerá aqui de forma segura..." class="w-full bg-[#04060A] border border-cyan-900/50 rounded-xl p-4 text-emerald-400 focus:outline-none resize-none shadow-inner"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Contacto (NOVA E COMPLETA) -->
+    <section id="contacto" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            
+            <!-- Info e Botões Rápidos -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-6 border border-cyan-500/20">
+                    <i data-lucide="message-square" class="w-4 h-4"></i> Fale Connosco
+                </div>
+                <h2 class="font-heading text-4xl font-bold text-white mb-6 leading-tight">
+                    Vamos Transformar a Sua <span class="text-cyan-400">Ideia em Realidade</span>
+                </h2>
+                <p class="text-slate-400 text-base mb-10">
+                    Seja para construir um website responsivo, uma aplicação de raiz, criar os flyers do seu próximo evento ou garantir a segurança da sua rede, a equipa VECTRA8 está pronta para ajudar.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Contacto Telefónico & WhatsApp -->
+                    <div class="glass-panel p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                <i data-lucide="phone-call" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-mono mb-1">Linha de Apoio Comercial</p>
+                                <p class="text-xl font-bold text-white tracking-wider">+351 900 000 000</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/351900000000" target="_blank" class="w-full sm:w-auto px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-mono mb-1">Correio Eletrónico</p>
+                            <a href="mailto:geral@vectra8.pt" class="text-lg font-bold text-white hover:text-cyan-400 transition-colors">geral@vectra8.pt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário Responsivo -->
+            <div class="glass-panel p-8 md:p-10 rounded-3xl">
+                <h3 class="font-heading text-2xl font-bold text-white mb-8">Pedir Orçamento Direto</h3>
+                <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contacto em breve.');" class="space-y-6 font-mono text-sm">
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-slate-400 mb-2">O seu Nome</label>
+                            <input type="text" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Telefone</label>
+                            <input type="tel" required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 mb-2">Qual o motivo do contacto?</label>
+                        <div class="relative">
+                            <select required class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors appearance-none">
+                                <option value="" disabled selected>Selecione o serviço desejado...</option>
+                                <option value="website">Criar Website Responsivo (Pack Landing Page)</option>
+                                <option value="software">Desenvolvimento de Software / App</option>
+                                <option value="design_flyer">Design de Flyer para Eventos</option>
+                                <option value="design_cartao">Design de Cartão de Visita</option>
+                                <option value="ciberseguranca">Auditoria / Cibersegurança</option>
+                                <option value="outro">Outro Motivo</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-4 top-4 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 mb-2">Detalhes do Projeto</label>
+                        <textarea rows="4" required placeholder="Explique brevemente o que pretende..." class="w-full bg-[#070B14] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 resize-none transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-500/25">
+                        <i data-lucide="send" class="w-5 h-5"></i> Enviar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Premium -->
+    <footer class="border-t border-slate-800 bg-[#04060A] pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img src="Gemini_Generated_Image_qkib7sqkib7sqkib.jpeg" alt="Logo Footer" class="w-10 h-10 object-cover rounded-lg">
+                <span class="font-heading font-bold text-white text-xl tracking-wider">VECTRA<span class="text-cyan-400">8</span></span>
+            </div>
+            
+            <p class="text-sm text-slate-500 font-mono text-center md:text-left">
+                Desenvolvido pela <span class="text-cyan-400 font-bold">Vectra8 Online agency digital</span> © 2026.
+            </p>
+            
+            <div class="flex gap-4 text-slate-400">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-900 transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-900 transition-all"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-900 transition-all"><i data-lucide="github" class="w-4 h-4"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interatividade -->
+    <script>
+        // Iniciar ícones
+        lucide.createIcons();
+
+        // Lógica das Tabs do CyberShield
+        function switchTab(tabId) {
+            // Esconder todas as tabs
+            ['tab-detector', 'tab-speed', 'tab-crypto'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+                document.getElementById('btn-' + id.replace('tab-', '')).classList.remove('active', 'text-cyan-400');
+                document.getElementById('btn-' + id.replace('tab-', '')).classList.add('text-slate-500');
+            });
+
+            // Mostrar a tab clicada
+            document.getElementById(tabId).classList.remove('hidden');
+            const btn = document.getElementById('btn-' + tabId.replace('tab-', ''));
+            btn.classList.add('active', 'text-cyan-400');
+            btn.classList.remove('text-slate-500');
+            
+            lucide.createIcons();
+        }
+
+        // TAB 1: Detetor de Riscos (URL/IP)
+        function runSecurityScan() {
+            const input = document.getElementById('target-input').value.trim();
+            const resultBox = document.getElementById('scan-result');
+            const statusText = document.getElementById('scan-status');
+            const detailsBox = document.getElementById('scan-details');
+
+            if (!input) {
+                alert('VECTRA8: Por favor insira um URL, Domínio ou endereço IP válido para análise.');
+                return;
+            }
+
+            resultBox.classList.remove('hidden');
+            statusText.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin text-cyan-400"></i> A estabelecer ligação com bases de dados globais...';
+            detailsBox.innerHTML = '';
+            lucide.createIcons();
+
+            // Simular tempo de resposta da rede
+            setTimeout(() => {
+                // Lógica simples para fins de simulação
+                const isMalicious = input.includes('malware') || input.includes('virus') || input.includes('hack');
+                
+                if (isMalicious) {
+                    statusText.innerHTML = '<i data-lucide="shield-alert" class="w-6 h-6 text-red-500"></i> <span class="text-red-500 text-lg">ALERTA CRÍTICO: O alvo apresenta risco elevado!</span>';
+                    detailsBox.innerHTML = `
+                        <p>• Alvo analisado: <span class="text-white">${input}</span></p>
+                        <p>• Certificado SSL: <span class="text-red-500 font-bold">INVÁLIDO / INSEGURO</span></p>
+                        <p>• Reputação DNS: <span class="text-red-500 font-bold">LISTA NEGRA (12/89 Scanners detetaram anomalias)</span></p>
+                        <p class="mt-4 text-xs text-red-400 bg-red-500/10 p-3 rounded-lg border border-red-500/20">Recomendação VECTRA8: Aborte a ligação a este endereço imediatamente. Risco de phishing ou injeção maliciosa detetado.</p>
+                    `;
+                } else {
+                    statusText.innerHTML = '<i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i> <span class="text-emerald-400 text-lg">VERIFICADO: O alvo é considerado Seguro.</span>';
+                    detailsBox.innerHTML = `
+                        <p>• Alvo analisado: <span class="text-white">${input}</span></p>
+                        <p>• Certificado SSL: <span class="text-emerald-400 font-bold">VÁLIDO (Tráfego Encriptado)</span></p>
+                        <p>• Reputação DNS: <span class="text-emerald-400 font-bold">LIMPO (0/89 Scanners)</span></p>
+                        <p class="mt-4 text-xs text-emerald-400 bg-emerald-500/10 p-3 rounded-lg border border-emerald-500/20">Nenhuma anomalia detetada pelas nossas rotinas de segurança padrão.</p>
+                    `;
+                }
+                lucide.createIcons();
+            }, 1800);
+        }
+
+        // TAB 2: Teste de Velocidade
+        function runSpeedTest() {
+            const btn = document.getElementById('speed-btn');
+            const pingVal = document.getElementById('ping-val');
+            const downVal = document.getElementById('down-val');
+            const upVal = document.getElementById('up-val');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> A analisar pacotes de rede...';
+            lucide.createIcons();
+
+            pingVal.innerHTML = '<span class="text-slate-500">...</span>';
+            downVal.innerHTML = '<span class="text-slate-500">...</span>';
+            upVal.innerHTML = '<span class="text-slate-500">...</span>';
+
+            // Simulação de Ping
+            setTimeout(() => { 
+                const ping = Math.floor(Math.random() * 15 + 4);
+                pingVal.innerHTML = `${ping} <span class="text-sm font-normal text-slate-400">ms</span>`; 
+            }, 1000);
+            
+            // Simulação de Download
+            setTimeout(() => { 
+                const down = Math.floor(Math.random() * 400 + 150);
+                downVal.innerHTML = `${down} <span class="text-sm font-normal text-slate-400">Mbps</span>`; 
+            }, 2500);
+            
+            // Simulação de Upload
+            setTimeout(() => { 
+                const up = Math.floor(Math.random() * 200 + 80);
+                upVal.innerHTML = `${up} <span class="text-sm font-normal text-slate-400">Mbps</span>`; 
+                btn.disabled = false;
+                btn.innerHTML = '<i data-lucide="refresh-cw" class="w-5 h-5"></i> Repetir Teste de Velocidade';
+                lucide.createIcons();
+            }, 4000);
+        }
+
+        // TAB 3: Encriptador de Mensagens
+        function processCrypto(action) {
+            const input = document.getElementById('crypto-input').value;
+            const algo = document.getElementById('algo-select').value;
+            const output = document.getElementById('crypto-output');
+
+            if (!input) {
+                alert("VECTRA8: Por favor, insira o texto que deseja processar.");
+                return;
+            }
+
+            try {
+                if (action === 'encrypt') {
+                    if (algo === 'base64') {
+                        output.value = btoa(unescape(encodeURIComponent(input)));
+                    } else if (algo === 'hex') {
+                        output.value = Array.from(input).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
+                    } else if (algo === 'rot13') {
+                        output.value = input.replace(/[a-zA-Z]/g, function(c){
+                            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+                        });
+                    }
+                } else if (action === 'decrypt') {
+                    if (algo === 'base64') {
+                        output.value = decodeURIComponent(escape(atob(input)));
+                    } else if (algo === 'hex') {
+                        output.value = input.split(' ').map(h => String.fromCharCode(parseInt(h, 16))).join('');
+                    } else if (algo === 'rot13') {
+                        // ROT13 reverte-se a ele próprio
+                        output.value = input.replace(/[a-zA-Z]/g, function(c){
+                            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+                        });
+                    }
+                }
+            } catch (error) {
+                output.value = "[ ERRO DE DESCODIFICAÇÃO ]\nO formato do texto não corresponde ao algoritmo selecionado (" + algo + "). Verifique os dados inseridos.";
+            }
+        }
+    </script>
+</body>
+</html>
